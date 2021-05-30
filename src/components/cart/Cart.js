@@ -15,7 +15,7 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import { useContext } from "react";
 import AppContext from "../../common/store/AppContext";
 import RemoveIcon from "@material-ui/icons/Remove";
-import DeleteIcon from "@material-ui/icons/Delete";
+
 import AddIcon from "@material-ui/icons/Add";
 
 const Cart = () => {
@@ -24,14 +24,12 @@ const Cart = () => {
 
   const priceFunction = () => {
     let cena = 0;
-    myContext.cartElement.products.map((el) => {
-      cena += el.data.price * el.nr;
-    });
+    myContext.cartElement.products.map((el) => cena += el.data.price * el.nr);
     setCena({ price: cena });
   };
 
   useEffect(() => {
-    priceFunction();
+    this.riceFunction();
   }, []);
 
   const buyHandle = () => {
@@ -41,12 +39,12 @@ const Cart = () => {
 
   const increaseHandle = (id) => {
     myContext.increase(id);
-    priceFunction();
+    this.priceFunction();
   };
 
   const decreaseHandle = (id) => {
     myContext.decrease(id);
-    priceFunction();
+    this.priceFunction();
   };
 
   return (
