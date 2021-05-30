@@ -6,7 +6,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: react-sklep
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
+  NODE_VERSION: '12.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -22,9 +22,9 @@ jobs:
     - name: npm install
       run: |
         npm install
-    - name: build
+    - name: npm build
       run: |
-        npm run build --if-present
+        npm run build
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:
