@@ -15,112 +15,89 @@ import AppContext from "./common/store/AppContext";
 import React, { useState } from "react";
 
 function App() {
-    const [cartElement, setCartElement] = useState({
-        products: [],
+  const [cartElement, setCartElement] = useState({
+    products: [],
+  });
+  const addCartElement = (id, dataEl) => {
+    if (cartElement.products.length === 0) {
+      const neEl = {
+        id: id,
+        nr: 1,
+        data: dataEl,
+      };
+      const el = [...cartElement.products, neEl];
+      setCartElement({ products: el });
+    }
+
+    let add = false;
+    for (const idElement of cartElement.products) {
+      if (idElement.id === id) {
+        ++idElement.nr;
+        add = false;
+        break;
+      }
+      add = true;
+    }
+
+    if (add) {
+      const neEl = {
+        id: id,
+        nr: 1,
+        data: dataEl,
+      };
+      const el = [...cartElement.products, neEl];
+      setCartElement({ products: el });
+    }
+  };
+
+  const increase = (id) => {
+    cartElement.products.forEach((el) => {
+      if (el.id === id) {
+        ++el.nr;
+      }
     });
-    const addCartElement = (id, dataEl) => {
-        if (cartElement.products.length === 0) {
-            const neEl = {
-                id: id,
-                nr: 1,
-                data: dataEl,
-            };
-            const el = [...cartElement.products, neEl];
-            setCartElement({ products: el });
-        }
+  };
 
-        let add = false;
-        for (const idElement of cartElement.products) {
-            if (idElement.id === id) {
-                ++idElement.nr;
-                add = false;
-                break;
-            }
-            add = true;
-        }
-
-        if (add) {
-            const neEl = {
-                id: id,
-                nr: 1,
-                data: dataEl,
-            };
-            const el = [...cartElement.products, neEl];
-            setCartElement({ products: el });
-        }
-    };
-
-    const increase = (id) => {
-        cartElement.products.forEach((el) => {
-            if (el.id === id) {
-                ++el.nr;
-            }
+  const decrease = (id) => {
+    cartElement.products.forEach((el) => {
+      if (el.id === id) {
+        --el.nr;
+      }
+      if (el.nr === 0) {
+        const el = [...cartElement.products];
+        let index = el.findIndex(function (o) {
+          return o.id === id;
         });
-    };
+        if (index !== -1) el.splice(index, 1);
+        setCartElement({ products: el });
+      }
+    });
+  };
 
-    const decrease = (id) => {
-        cartElement.products.forEach((el) => {
-            if (el.id === id) {
-                --el.nr;
-            }
-            if (el.nr === 0) {
-                const el = [...cartElement.products];
-                let index = el.findIndex(function(o) {
-                    return o.id === id;
-                });
-                if (index !== -1) el.splice(index, 1);
-                setCartElement({ products: el });
-            }
-        });
-    };
+  const userSettings = {
+    cartElement: cartElement,
+    addCartElement,
+    increase,
+    decrease,
+  };
 
-    const userSettings = {
-        cartElement: cartElement,
-        addCartElement,
-        increase,
-        decrease,
-    };
-
-    return ( <
-            AppContext.Provider value = { userSettings } >
-            <
-            NavMenu / >
-            <
-            Switch >
-            <
-            Route path = "/signin"
-            exact component = { Signin }
-            /> <
-            Route path = "/signup"
-            exact component = { Signup }
-            /> <
-            Route path = "/products"
-            exact component = { Products }
-            /> <
-            Route path = "/addproduct"
-            exact component = { AddProduct }
-            /> <
-            Route path = "/categories"
-            exact component = { Categories }
-            /> <
-            Route path = "/product/:id"
-            exact component = { ProductCart }
-            /> <
-            Route path = "/tobuy"
-            exact component = { UserProductPage }
-            /> <
-            Route path = "/cart"
-            exact component = { Cart }
-            /> { / * < Route path = "/admin"
-            exact component = { Admin }
-            />*/
-        } <
-        Route path = "/"
-    exact component = { Home }
-    /> < /
-    Switch > <
-        /AppContext.Provider>
-);
+  return (
+    <AppContext.Provider value={userSettings}>
+      <NavMenu />
+      <Switch>
+        <Route path="/signin" exact component={Signin} />
+        <Route path="/signup" exact component={Signup} />
+        <Route path="/products" exact component={Products} />
+        <Route path="/addproduct" exact component={AddProduct} />
+        <Route path="/categories" exact component={Categories} />
+        <Route path="/product/:id" exact component={ProductCart} />
+        <Route path="/tobuy" exact component={UserProductPage} />
+        <Route path="/cart" exact component={Cart} />
+        {/*<Route path="/admin" exact component={Admin} />*/}
+        <Route path="/" exact component={Home} />
+      </Switch>
+    </AppContext.Provider>
+  );
 }
 
 export default App;
