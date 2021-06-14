@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ProductService from "../../services/product";
@@ -9,6 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
+import AppContext from "../../common/store/AppContext";
 
 const useStyles = makeStyles({
   root: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
 const ProductCart = () => {
   const { id } = useParams();
   const classes = useStyles();
+  const myContext = useContext(AppContext);
 
   const [product, setProducts] = useState();
   useEffect(() => {
@@ -36,8 +38,12 @@ const ProductCart = () => {
     );
   }, []);
 
+  const addtoCartHandle = (id, data) => {
+    myContext.addCartElement(id, data);
+  };
+
   return (
-    <div className="outer">
+    <div className="outer outher-product">
       {console.log(product ? product : "")}
       <Card className={classes.root}>
         <CardActionArea>
@@ -69,7 +75,11 @@ const ProductCart = () => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="large" color="primary">
+          <Button
+            size="large"
+            color="primary"
+            onClick={() => addtoCartHandle(product.data.id, product.data)}
+          >
             Add to cart
           </Button>
         </CardActions>

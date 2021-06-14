@@ -17,15 +17,18 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { useState } from "react";
 import AuthService from "../../services/auth";
-import { GithubLoginButton, GoogleLoginButton } from "react-social-login-buttons";
-import {createButton} from "react-social-login-buttons";
+import {
+  GithubLoginButton,
+  GoogleLoginButton,
+} from "react-social-login-buttons";
+import { createButton } from "react-social-login-buttons";
 
 const config = {
   text: "Log in with GitLab",
   icon: "gitlab",
-  iconFormat: name => `fa fa-${name}`,
+  iconFormat: (name) => `fa fa-${name}`,
   style: { background: "#FF8C00" },
-  activeStyle: { background: "#FFA500" }
+  activeStyle: { background: "#FFA500" },
 };
 
 const GitLabLoginButton = createButton(config);
@@ -131,9 +134,8 @@ export default function Signin() {
   };
 
   const oauthLogin = (url) => {
-    window.location.assign("http://localhost:9000" + url);
-
-  }
+    window.location.assign("https://sklep-backend.azurewebsites.net" + url);
+  };
 
   return (
     <div className="outer">
@@ -214,9 +216,12 @@ export default function Signin() {
             </Button>
           </Grid>
         </Form>
-        <GoogleLoginButton onClick={() => oauthLogin("/authenticate/google")} style={{marginTop: "20px"}}/>
+        <GoogleLoginButton
+          onClick={() => oauthLogin("/authenticate/google")}
+          style={{ marginTop: "20px" }}
+        />
         <GithubLoginButton onClick={() => oauthLogin("/authenticate/github")} />
-        <GitLabLoginButton onClick={() => oauthLogin("/authenticate/gitlab")}/>
+        <GitLabLoginButton onClick={() => oauthLogin("/authenticate/gitlab")} />
       </div>
       <footer>
         <Typography className="copyR">Sklepik &copy; 2021</Typography>

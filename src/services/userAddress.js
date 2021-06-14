@@ -11,7 +11,7 @@ class UserAddressService {
 
   addUserAddress(information) {
     return axios.post("userAddres", {
-      userId: information.userId,
+      userId: information.id,
       city: information.city,
       postalCode: information.postalCode,
       country: information.country,
@@ -23,7 +23,8 @@ class UserAddressService {
 
   updateUserAddress(information) {
     return axios.post(`userAddres_update`, {
-      id: information.id,
+      id: information.addId,
+      userId: information.id,
       city: information.city,
       postalCode: information.postalCode,
       country: information.country,

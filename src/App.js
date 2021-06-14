@@ -4,7 +4,6 @@ import Signin from "./components/authorization/Signin";
 import Signup from "./components/authorization/Signup";
 import Home from "./components/home/Home";
 import NavMenu from "./common/nav/NavMenu";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Products from "./components/product/Products";
 import AddProduct from "./components/product/AddProduct";
 import Categories from "./components/categories/Categories";
@@ -13,12 +12,14 @@ import UserProductPage from "./components/product/UserProductPage";
 import Cart from "./components/cart/Cart";
 import AppContext from "./common/store/AppContext";
 import React, { useState } from "react";
+import Profile from "./components/profile/Profile";
 
 function App() {
   const [cartElement, setCartElement] = useState({
     products: [],
   });
   const addCartElement = (id, dataEl) => {
+    console.log(dataEl);
     if (cartElement.products.length === 0) {
       const neEl = {
         id: id,
@@ -93,7 +94,7 @@ function App() {
         <Route path="/product/:id" exact component={ProductCart} />
         <Route path="/tobuy" exact component={UserProductPage} />
         <Route path="/cart" exact component={Cart} />
-        {/*<Route path="/admin" exact component={Admin} />*/}
+        <Route path="/profile" exact component={Profile} />
         <Route path="/" exact component={Home} />
       </Switch>
     </AppContext.Provider>

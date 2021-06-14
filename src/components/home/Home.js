@@ -1,66 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import "./Home.scss";
+import MenuItem from "../../common/HomeMenuItem/MenuItem";
 
 const Home = () => {
-  // todo remove after setting authorization
+  const [user, setUser] = useState({});
+
+  const getAdmin = () => {
+    if (document.cookie.split("; ").find((row) => row.startsWith("admin="))) {
+      return true;
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    setUser({ admin: getAdmin() });
+  }, []);
 
   return (
-    <div className="outer">
-      <div className="inner3">
-        <Typography variant="h4" className="tx">
-          Admin
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          style={{ minHeight: "50px" }}
-          fullWidth
-          to="/products"
-          component={Link}
-        >
-          Products
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          style={{ minHeight: "50px" }}
-          fullWidth
-          to="/categories"
-          component={Link}
-        >
-          Categories
-        </Button>
+    <div>
+      {user.admin ? (
+        <div className="outer">
+          <div className="inner3">
+            <Typography variant="h4" className="tx">
+              Admin
+            </Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              size="large"
+              style={{ minHeight: "50px" }}
+              fullWidth
+              to="/products"
+              component={Link}
+            >
+              Products
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              style={{ minHeight: "50px" }}
+              fullWidth
+              to="/categories"
+              component={Link}
+            >
+              Categories
+            </Button>
+          </div>
+        </div>
+      ) : (
+        <div className="homepage">
+          <div className="directory-menu">
+            <MenuItem
+              key="0"
+              title="Sklep"
+              image="https://www.kare-design.com/wp-content/uploads/2015/08/2.jpg"
+              size="large"
+              linkUrl="/tobuy"
+            />
+            <MenuItem
+              key="1"
+              title="Mój profil"
+              image="https://ergostore.pl/wp-content/uploads/2018/11/levis_2.jpg"
+              size="large"
+              linkUrl="/profile"
+            />
+          </div>
+        </div>
+      )}
 
-        <Typography variant="h4" className="tx">
-          User
-        </Typography>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          style={{ minHeight: "50px" }}
-          fullWidth
-          to="/tobuy"
-          component={Link}
-        >
-          Buy
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          style={{ minHeight: "50px" }}
-          fullWidth
-          to="/cart"
-          component={Link}
-        >
-          Cart
-        </Button>
-      </div>
+      <footer>
+        <Typography className="copyR">Sklepik &copy; 2021</Typography>
+      </footer>
     </div>
   );
 };

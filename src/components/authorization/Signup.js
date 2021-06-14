@@ -82,7 +82,7 @@ export default function Signup() {
 
   const passwordValidator = (password) => {
     const regexp =
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+,.\\\/;':"-]).{8,}$/;
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+,.\\;':"-]).{8,}$/;
     let errorMessage = "";
     setErrors({
       ...errors,

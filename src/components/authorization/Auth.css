@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.outher-product {
+  padding-top: 50px;
+}
+
 .inner {
   width: 600px;
   height: 600px;
