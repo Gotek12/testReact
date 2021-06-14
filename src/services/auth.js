@@ -19,8 +19,7 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  signUp2(email, firstName, lastName, password) {
-    console.log("proxy")
+  signUp(email, firstName, lastName, password) {
     return axios.post("signUp", {
       email: email,
       password: password,
@@ -28,16 +27,6 @@ class AuthService {
       lastName: lastName,
     });
   }
-
-signUp(email, firstName, lastName, password) {
-  console.log("proxy2")
-  return axios.post("https://sklep-backend.azurewebsites.net/api/signUp", {
-    email: email,
-    password: password,
-    firstName: firstName,
-    lastName: lastName,
-  });
-}
 
 }
 
