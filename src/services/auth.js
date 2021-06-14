@@ -19,14 +19,15 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  signUp(email, firstName, lastName, password) {
-    return axios.post("signUp", {
-      email: email,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-    });
-  }
+signUp(email, firstName, lastName, password) {
+    console.log("rejestracja")
+  return axios.post("https://sklep-backend.azurewebsites.net/api/signUp", {
+    email: email,
+    password: password,
+    firstName: firstName,
+    lastName: lastName,
+  });
+}
 
 }
 
