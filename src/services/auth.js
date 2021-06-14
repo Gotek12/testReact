@@ -19,15 +19,14 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-signUp(email, firstName, lastName, password) {
-  return axios.post("signUp", {
-    email: email,
-    password: password,
-    firstName: firstName,
-    lastName: lastName,
-  });
-}
-
+  signUp(email, firstName, lastName, password) {
+    return axios.post("signUp", {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+    });
+  }
 }
 
 export default new AuthService();

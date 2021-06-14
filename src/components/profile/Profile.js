@@ -276,8 +276,7 @@ const Profile = () => {
             Historia zamówień
           </Typography>
           <List>
-            {console.log(summaryOrders)}
-            {summaryOrders ? summaryOrders.arr
+            {summaryOrders.arr
               ? summaryOrders.arr.data.map((el, index) => {
                   return (
                     <ListItem key={index}>
@@ -293,7 +292,7 @@ const Profile = () => {
                     </ListItem>
                   );
                 })
-              : "" : ""}
+              : ""}
           </List>
         </div>
       </div>
