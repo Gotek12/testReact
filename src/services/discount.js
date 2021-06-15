@@ -2,15 +2,15 @@ import axios from "axios";
 
 class DiscountService {
   getDiscounts() {
-    return axios.get("discounts");
+    return axios.get("https://sklep-backend.azurewebsites.net/api/discounts");
   }
 
   getDiscountById(id) {
-    return axios.get(`discount/${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/discount/${id}`);
   }
 
   addDiscount(information) {
-    return axios.post("discount", {
+    return axios.post("https://sklep-backend.azurewebsites.net/api/discount", {
       name: information.name,
       discountPercentage: information.discountPercentage,
       expire: information.expire,
@@ -19,7 +19,7 @@ class DiscountService {
   }
 
   updateDiscount(information) {
-    return axios.post(`discount_update`, {
+    return axios.post(`https://sklep-backend.azurewebsites.net/api/discount_update`, {
       id: information.id,
       name: information.name,
       discountPercentage: information.discountPercentage,
@@ -29,7 +29,7 @@ class DiscountService {
   }
 
   deleteDiscount(id) {
-    return axios.delete(`discount/${id}`);
+    return axios.delete(`https://sklep-backend.azurewebsites.net/api/discount/${id}`);
   }
 }
 

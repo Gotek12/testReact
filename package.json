@@ -31,7 +31,6 @@
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
-  "proxy": "https://sklep-backend.azurewebsites.net/api",
   "eslintConfig": {
     "extends": [
       "react-app",

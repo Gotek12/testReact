@@ -2,15 +2,15 @@ import axios from "axios";
 
 class CartItemService {
   getCartItems() {
-    return axios.get("cartsItems");
+    return axios.get("https://sklep-backend.azurewebsites.net/api/cartsItems");
   }
 
   getCartItemById(id) {
-    return axios.get(`cartsItems/${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/cartsItems/${id}`);
   }
 
   addCartItem(information) {
-    return axios.post("cartItem", {
+    return axios.post("https://sklep-backend.azurewebsites.net/api/cartItem", {
       quantity: information.quantity,
       productId: information.productId,
       cardId: information.cardId,
@@ -18,7 +18,7 @@ class CartItemService {
   }
 
   updateCartItem(information) {
-    return axios.post(`cartItem_update`, {
+    return axios.post(`https://sklep-backend.azurewebsites.net/api/cartItem_update`, {
       id: information.id,
       quantity: information.quantity,
       productId: information.productId,
@@ -27,7 +27,7 @@ class CartItemService {
   }
 
   deleteCartItem(id) {
-    return axios.delete(`cartItem/${id}`);
+    return axios.delete(`https://sklep-backend.azurewebsites.net/api/cartItem/${id}`);
   }
 }
 

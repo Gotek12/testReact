@@ -20,15 +20,15 @@ class UserService {
   }
 
   deleteUser(id) {
-    return axios.delete(`user/${id}`);
+    return axios.delete(`https://sklep-backend.azurewebsites.net/api/user/${id}`);
   }
 
   getUserByEmail(email) {
-    return axios.get(`getUsert/${email}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/getUsert/${email}`);
   }
 
   updateUser(information) {
-    return axios.post(`userUpdate`, {
+    return axios.post(`https://sklep-backend.azurewebsites.net/api/userUpdate`, {
       id: information.id,
       loginInfo: information.loginInfo,
       email: information.email,

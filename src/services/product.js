@@ -2,21 +2,21 @@ import axios from "axios";
 
 class ProductService {
   getProducts() {
-    return axios.get("products");
+    return axios.get("https://sklep-backend.azurewebsites.net/api/products");
   }
 
   //todo fix endpoints
   getProductById(id) {
-    return axios.get(`${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/${id}`);
   }
 
   getProductById2(id) {
-    return axios.get(`product/${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/product/${id}`);
   }
 
   addProduct(information) {
     console.log(information);
-    return axios.post("product", {
+    return axios.post("https://sklep-backend.azurewebsites.net/api/product", {
       name: information.name,
       description: information.description,
       categoryId: information.categoryId,

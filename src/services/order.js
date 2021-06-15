@@ -2,15 +2,15 @@ import axios from "axios";
 
 class OrderService {
   getOrders() {
-    return axios.get("orders");
+    return axios.get("https://sklep-backend.azurewebsites.net/api/orders");
   }
 
   getOrderById(id) {
-    return axios.get(`order/${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/order/${id}`);
   }
 
   addOrder(information) {
-    return axios.post("order", {
+    return axios.post("https://sklep-backend.azurewebsites.net/api/order", {
       userId: information.userId,
       status: information.name,
       items: information.name,
@@ -23,7 +23,7 @@ class OrderService {
   }
 
   updateOrder(information) {
-    return axios.post(`order_update`, {
+    return axios.post(`https://sklep-backend.azurewebsites.net/api/order_update`, {
       id: information.id,
       userId: information.userId,
       status: information.name,
@@ -37,7 +37,7 @@ class OrderService {
   }
 
   deleteOrder(id) {
-    return axios.delete(`order/${id}`);
+    return axios.delete(`https://sklep-backend.azurewebsites.net/api/order/${id}`);
   }
 }
 

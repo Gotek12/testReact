@@ -2,15 +2,15 @@ import axios from "axios";
 
 class UserAddressService {
   getUserAddresses() {
-    return axios.get("usersAddresses");
+    return axios.get("https://sklep-backend.azurewebsites.net/api/usersAddresses");
   }
 
   getuserAddressById(id) {
-    return axios.get(`userAddresses/${id}`);
+    return axios.get(`https://sklep-backend.azurewebsites.net/api/userAddresses/${id}`);
   }
 
   addUserAddress(information) {
-    return axios.post("userAddres", {
+    return axios.post("https://sklep-backend.azurewebsites.net/api/userAddres", {
       userId: information.id,
       city: information.city,
       postalCode: information.postalCode,
@@ -22,7 +22,7 @@ class UserAddressService {
   }
 
   updateUserAddress(information) {
-    return axios.post(`userAddres_update`, {
+    return axios.post(`https://sklep-backend.azurewebsites.net/api/userAddres_update`, {
       id: information.addId,
       userId: information.id,
       city: information.city,
@@ -35,7 +35,7 @@ class UserAddressService {
   }
 
   deleteUserAddress(id) {
-    return axios.delete(`userAddres/${id}`);
+    return axios.delete(`https://sklep-backend.azurewebsites.net/api/userAddres/${id}`);
   }
 }
 

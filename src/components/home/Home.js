@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "./Home.scss";
 import MenuItem from "../../common/HomeMenuItem/MenuItem";
+import axios from "axios";
 
 const Home = () => {
   const [user, setUser] = useState({});
