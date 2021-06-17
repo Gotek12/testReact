@@ -16,14 +16,19 @@ class CartService {
   }
 
   updateCart(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/cart_update`, {
-      id: information.id,
-      userId: information.userId,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/cart_update`,
+      {
+        id: information.id,
+        userId: information.userId,
+      }
+    );
   }
 
   deleteCart(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/cart/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/cart/${id}`
+    );
   }
 }
 

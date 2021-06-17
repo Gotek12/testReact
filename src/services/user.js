@@ -20,22 +20,29 @@ class UserService {
   }
 
   deleteUser(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/user/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/user/${id}`
+    );
   }
 
   getUserByEmail(email) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/getUsert/${email}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/getUsert/${email}`
+    );
   }
 
   updateUser(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/userUpdate`, {
-      id: information.id,
-      loginInfo: information.loginInfo,
-      email: information.email,
-      role: information.role,
-      firstName: information.firstName,
-      lastName: information.lastName,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/userUpdate`,
+      {
+        id: information.id,
+        loginInfo: information.loginInfo,
+        email: information.email,
+        role: information.role,
+        firstName: information.firstName,
+        lastName: information.lastName,
+      }
+    );
   }
 }
 

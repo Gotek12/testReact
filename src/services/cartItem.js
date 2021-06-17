@@ -6,7 +6,9 @@ class CartItemService {
   }
 
   getCartItemById(id) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/cartsItems/${id}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/cartsItems/${id}`
+    );
   }
 
   addCartItem(information) {
@@ -18,16 +20,21 @@ class CartItemService {
   }
 
   updateCartItem(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/cartItem_update`, {
-      id: information.id,
-      quantity: information.quantity,
-      productId: information.productId,
-      cardId: information.cardId,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/cartItem_update`,
+      {
+        id: information.id,
+        quantity: information.quantity,
+        productId: information.productId,
+        cardId: information.cardId,
+      }
+    );
   }
 
   deleteCartItem(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/cartItem/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/cartItem/${id}`
+    );
   }
 }
 

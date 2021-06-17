@@ -11,7 +11,9 @@ class ProductService {
   }
 
   getProductById2(id) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/product/${id}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/product/${id}`
+    );
   }
 
   addProduct(information) {

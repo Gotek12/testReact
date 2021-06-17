@@ -135,6 +135,7 @@ export default function Signin() {
 
   const oauthLogin = (url) => {
     window.location.assign("https://sklep-backend.azurewebsites.net" + url);
+    // window.location.assign("http://localhost:9000" + url);
   };
 
   return (

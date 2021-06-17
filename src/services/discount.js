@@ -6,7 +6,9 @@ class DiscountService {
   }
 
   getDiscountById(id) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/discount/${id}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/discount/${id}`
+    );
   }
 
   addDiscount(information) {
@@ -19,17 +21,22 @@ class DiscountService {
   }
 
   updateDiscount(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/discount_update`, {
-      id: information.id,
-      name: information.name,
-      discountPercentage: information.discountPercentage,
-      expire: information.expire,
-      productId: information.productId,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/discount_update`,
+      {
+        id: information.id,
+        name: information.name,
+        discountPercentage: information.discountPercentage,
+        expire: information.expire,
+        productId: information.productId,
+      }
+    );
   }
 
   deleteDiscount(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/discount/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/discount/${id}`
+    );
   }
 }
 

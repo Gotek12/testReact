@@ -6,7 +6,9 @@ class CategoryService {
   }
 
   getCategoryById(id) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/category/${id}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/category/${id}`
+    );
   }
 
   addCategory(information) {
@@ -17,15 +19,20 @@ class CategoryService {
   }
 
   updateCategory(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/category_update`, {
-      id: information.id,
-      name: information.name,
-      description: information.description,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/category_update`,
+      {
+        id: information.id,
+        name: information.name,
+        description: information.description,
+      }
+    );
   }
 
   deleteCategory(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/category/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/category/${id}`
+    );
   }
 }
 

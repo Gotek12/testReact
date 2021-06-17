@@ -23,21 +23,26 @@ class OrderService {
   }
 
   updateOrder(information) {
-    return axios.post(`https://sklep-backend.azurewebsites.net/api/order_update`, {
-      id: information.id,
-      userId: information.userId,
-      status: information.name,
-      items: information.name,
-      tax: information.tax,
-      price: information.price,
-      shipping: information.shipping,
-      payed: information.payed,
-      realized: information.realized,
-    });
+    return axios.post(
+      `https://sklep-backend.azurewebsites.net/api/order_update`,
+      {
+        id: information.id,
+        userId: information.userId,
+        status: information.name,
+        items: information.name,
+        tax: information.tax,
+        price: information.price,
+        shipping: information.shipping,
+        payed: information.payed,
+        realized: information.realized,
+      }
+    );
   }
 
   deleteOrder(id) {
-    return axios.delete(`https://sklep-backend.azurewebsites.net/api/order/${id}`);
+    return axios.delete(
+      `https://sklep-backend.azurewebsites.net/api/order/${id}`
+    );
   }
 }
 

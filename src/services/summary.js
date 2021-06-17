@@ -2,7 +2,9 @@ import axios from "axios";
 
 class SummaryService {
   getSummary(userId) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/getOrders/${userId}`);
+    return axios.get(
+      `https://sklep-backend.azurewebsites.net/api/getOrders/${userId}`
+    );
   }
 
   addSummary(userId, price) {

@@ -141,7 +141,7 @@ export default function Signup() {
       values.password
     ).then(
       () => {
-        window.location.reload();
+        window.location.href = "/";
       },
       (error) => {
         const resMessage =
