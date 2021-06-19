@@ -5,7 +5,6 @@ class ProductService {
     return axios.get("https://sklep-backend.azurewebsites.net/api/products");
   }
 
-  //todo fix endpoints
   getProductById(id) {
     return axios.get(`https://sklep-backend.azurewebsites.net/api/${id}`);
   }
