@@ -6,13 +6,9 @@ class ProductService {
   }
 
   getProductById(id) {
-    return axios.get(`https://sklep-backend.azurewebsites.net/api/${id}`);
-  }
-
-  getProductById2(id) {
     return axios.get(
-      `https://sklep-backend.azurewebsites.net/api/product/${id}`
-    );
+	`https://sklep-backend.azurewebsites.net/api/product/${id}`
+	);
   }
 
   addProduct(information) {
